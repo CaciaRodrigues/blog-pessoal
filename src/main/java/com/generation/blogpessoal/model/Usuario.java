@@ -92,5 +92,7 @@ public class Usuario {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
+	
+	// Esta linha é um comentário para fins de teste
 
 }
