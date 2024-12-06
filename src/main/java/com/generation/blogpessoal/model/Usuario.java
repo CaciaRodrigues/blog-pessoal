@@ -24,27 +24,29 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotNull(message = "O atributo nome é obrigatório!")
+
+	@NotNull(message = "O Atributo Nome é Obrigatório!")
 	private String nome;
-	
-	@NotNull(message =  "O atributo usuário é obrigatório!")
-	@Email(message = "O atributo usuário deve ser uma email válido!")
+
+	@NotNull(message = "O Atributo Usuário é Obrigatório!")
+	@Email(message = "O Atributo Usuário deve ser um email válido!")
 	private String usuario;
-	
-	@NotBlank(message = "O atributo senha é obrigatório!")
-	@Size(min = 8, message = "A senha deve ter no mínimo 8 caracteres!")
+
+	@NotBlank(message = "O Atributo Senha é Obrigatório!")
+	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;
-	
+
 	@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
 	private String foto;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
 
+	/* Insira os Getters and Setters */
+
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Long id) {
@@ -52,7 +54,7 @@ public class Usuario {
 	}
 
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	public void setNome(String nome) {
@@ -60,7 +62,7 @@ public class Usuario {
 	}
 
 	public String getUsuario() {
-		return usuario;
+		return this.usuario;
 	}
 
 	public void setUsuario(String usuario) {
@@ -68,7 +70,7 @@ public class Usuario {
 	}
 
 	public String getSenha() {
-		return senha;
+		return this.senha;
 	}
 
 	public void setSenha(String senha) {
@@ -76,7 +78,7 @@ public class Usuario {
 	}
 
 	public String getFoto() {
-		return foto;
+		return this.foto;
 	}
 
 	public void setFoto(String foto) {
@@ -84,13 +86,11 @@ public class Usuario {
 	}
 
 	public List<Postagem> getPostagem() {
-		return postagem;
+		return this.postagem;
 	}
 
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
-	
-	
-	
+
 }
